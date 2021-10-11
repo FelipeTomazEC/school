@@ -7,18 +7,18 @@ import static org.junit.jupiter.api.Assertions.*;
 public class EmailTest {
     @Test
     public void shouldHaveAtMarker() {
-        assertThrows(IllegalArgumentException.class, () -> Email.getInstance("not.email.com"));
+        assertThrows(IllegalArgumentException.class, () -> new Email("not.email.com"));
     }
 
     @Test
     public void shouldNotHaveMoreThanOneDot() {
-        assertThrows(IllegalArgumentException.class, () -> Email.getInstance("email@email..com"));
+        assertThrows(IllegalArgumentException.class, () -> new Email("email@email..com"));
     }
 
     @Test
     public void shouldCreateAnEmailInstance() {
         var address = "email@email.com";
-        var email = Email.getInstance(address);
+        var email = new Email(address);
 
         assertNotNull(email);
         assertEquals(address, email.getAddress());
@@ -26,13 +26,13 @@ public class EmailTest {
 
     @Test
     public void shouldNotBeEmptyString() {
-        assertThrows(IllegalArgumentException.class, () -> Email.getInstance("   "));
+        assertThrows(IllegalArgumentException.class, () -> new Email("   "));
     }
 
     @Test
     public void shouldRemoveExtraSpaces() {
         var address = "      email@email.com      ";
-        var email = Email.getInstance(address);
+        var email = new Email(address);
 
         assertNotNull(email);
         assertEquals(email.getAddress(), "email@email.com");

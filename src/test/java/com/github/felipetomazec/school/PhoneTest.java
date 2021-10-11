@@ -7,21 +7,34 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PhoneTest {
     @Test
-    public void shouldNotHaveLessThan10Numbers() {
-        assertThrows(IllegalArgumentException.class, () -> Phone.getInstance("311234567"));
+    public void shouldNotHaveNumberWithLessThan8Numbers() {
+        assertThrows(IllegalArgumentException.class, () -> Phone.getInstance("31", "1234567"));
     }
 
     @Test
-    public void shouldNotHaveMoreThan11Numbers() {
-        assertThrows(IllegalArgumentException.class, () -> Phone.getInstance("123456789123"));
+    public void shouldNotHaveNumberWithMoreThan9Numbers() {
+        assertThrows(IllegalArgumentException.class, () -> Phone.getInstance("31", "123456789123"));
     }
 
     @Test
     public void shouldRemoveExtraSpaces() {
-        var number = "31987654321";
+        var ddd = "31";
+        var dddWithSpaces = String.format("     %s  ", ddd);
+        var number = "987654321";
         var numberWithSpaces = String.format("      %s       ", number);
-        var phone = Phone.getInstance(numberWithSpaces);
+        var phone = Phone.getInstance(dddWithSpaces, numberWithSpaces);
+        var phoneNumber = String.format("(%s) %s", ddd, number);
 
-        assertEquals(number, phone.getNumber());
+        assertEquals(phoneNumber, phone.getPhoneNumber());
+    }
+
+    @Test
+    public void shouldHaveDDDWith2Numbers () {
+        var dddWithMoreThan2Numbers = "031";
+        var dddWithLessThan2Numbers = "3";
+        var number = "994856589";
+
+        assertThrows(IllegalArgumentException.class, () -> Phone.getInstance(dddWithMoreThan2Numbers, number));
+        assertThrows(IllegalArgumentException.class, () -> Phone.getInstance(dddWithLessThan2Numbers, number));
     }
 }

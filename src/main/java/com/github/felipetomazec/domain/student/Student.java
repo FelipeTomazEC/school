@@ -1,4 +1,4 @@
-package com.github.felipetomazec.school;
+package com.github.felipetomazec.domain.student;
 
 import java.util.HashSet;
 import java.util.Set;

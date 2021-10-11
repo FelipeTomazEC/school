@@ -1,4 +1,4 @@
-package com.github.felipetomazec.school;
+package com.github.felipetomazec.domain.student;
 
 import org.junit.jupiter.api.Test;
 

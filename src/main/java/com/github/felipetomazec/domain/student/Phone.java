@@ -1,4 +1,4 @@
-package com.github.felipetomazec.school;
+package com.github.felipetomazec.domain.student;
 
 public class Phone {
     private String number;

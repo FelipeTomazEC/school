@@ -32,12 +32,12 @@ public class Student {
         return name;
     }
 
-    public CPF getCpf() {
-        return cpf;
+    public String getCpf() {
+        return cpf.getNumber();
     }
 
-    public Email getEmail() {
-        return email;
+    public String getEmail() {
+        return email.getAddress();
     }
 
     public Set<Phone> getPhones() {

@@ -41,7 +41,7 @@ public class StudentTest {
         assertTrue(student
                 .getPhones()
                 .stream()
-                .anyMatch((p) -> p.getPhoneNumber().equals("(31) 995659878"))
+                .anyMatch((p) -> p.getFullNumber().equals("(31) 995659878"))
         );
     }
 }

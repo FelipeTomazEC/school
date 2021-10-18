@@ -22,7 +22,15 @@ public class Phone {
         this.number = numberWithoutSpaces;
     }
 
-    public String getPhoneNumber() {
+    public String getNumber() {
+        return number;
+    }
+
+    public String getDdd() {
+        return ddd;
+    }
+
+    public String getFullNumber() {
         return String.format("(%s) %s", ddd, number);
     }
 

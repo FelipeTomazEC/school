@@ -25,7 +25,7 @@ public class PhoneTest {
         var phone = new Phone(dddWithSpaces, numberWithSpaces);
         var phoneNumber = String.format("(%s) %s", ddd, number);
 
-        assertEquals(phoneNumber, phone.getPhoneNumber());
+        assertEquals(phoneNumber, phone.getFullNumber());
     }
 
     @Test
